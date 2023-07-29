@@ -1,0 +1,2 @@
+# template
+NX workspace starter

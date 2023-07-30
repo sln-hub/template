@@ -1,0 +1,61 @@
+{
+  "name": "utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/utils/src",
+  "projectType": "library",
+  "tags": ["type:lib"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/utils",
+        "tsConfig": "packages/utils/tsconfig.lib.json",
+        "project": "packages/utils/package.json",
+        "entryFile": "packages/utils/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/utils/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/packages/utils"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/utils"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "fix": true,
+        "lintFilePatterns": ["packages/utils/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "jsonlint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/accept-payment",
+        "commands": ["eslint --ext .json --fix"],
+        "parallel": false
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/utils/**/*.scss"]
+      }
+    }
+  }
+}

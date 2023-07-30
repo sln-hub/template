@@ -1,0 +1,28 @@
+# IDE
+.idea
+.vscode
+
+# Artifacts
+dist
+build
+coverage
+tmp
+temp
+
+# Dependencies
+node_modules
+
+# OS
+.DS_Store
+
+# Local dev files
+.env
+.bashrc
+.npmrc
+*.node
+
+# Logs
+*.log
+
+# Next.js
+.next

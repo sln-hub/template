@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "keyofStringsOnly": true,
+    "baseUrl": ".",
+    "ignoreDeprecations": "5.0",
+    "paths": {
+      "@acme/storybook-host": ["libs/storybook-host/src/index.ts"],
+      "@acme/utils": ["packages/utils/src/index.ts"],
+      "@acme/utils/*": ["packages/utils/src/*"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

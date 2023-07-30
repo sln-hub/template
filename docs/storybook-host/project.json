@@ -1,0 +1,48 @@
+{
+  "name": "storybook-host",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "docs/storybook-host/src",
+  "projectType": "library",
+  "tags": ["type:storybook"],
+  "implicitDependencies": [
+    "accept-payment",
+    "admin",
+    "merchant",
+    "core",
+    "ui"
+  ],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["docs/storybook-host/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "docs": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4444,
+        "configDir": "docs/storybook-host/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-docs": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/storybook-host",
+        "configDir": "docs/storybook-host/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    }
+  }
+}

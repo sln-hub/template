@@ -1,0 +1,1 @@
+export { CompanyFaker } from './company';
